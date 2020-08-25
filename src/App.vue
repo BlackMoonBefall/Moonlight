@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <main-tab-bar/>
-    
-    <router-view/>
+    <main-tab-bar/>         <!-- 底部横条 -->
+    <router-view/>          <!-- 前端路由页面 -->
   </div>
 </template>
 
