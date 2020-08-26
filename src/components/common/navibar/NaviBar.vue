@@ -12,13 +12,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .nav-bar{
     display: flex;
     height: 44px;
     line-height: 44px;
     text-align: center;
     box-shadow: 0 2px 2px rgba(100,100,100,.3);
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 9;
   }
   .left, .right{
     
