@@ -1,12 +1,12 @@
 <template>
   <div>
-   关注
+    用户:开发中...
   </div>  
 </template>
 
 <script>
 export default {
-  name:'Subs',
+  name:'User',
 }
 </script>
 

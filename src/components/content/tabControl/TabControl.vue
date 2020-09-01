@@ -40,6 +40,7 @@ export default {
 <style scoped>
   .tab-control{
     display: flex;
+    background: rgb(247, 243, 243);
   }
   
   .active{

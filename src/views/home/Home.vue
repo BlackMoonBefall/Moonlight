@@ -1,15 +1,25 @@
 <template>
   <div id="home">
     <navi-bar class="home-nav"><div slot="center">月光小站</div></navi-bar>
+    <tab-control :titles="['推荐','热门','排行榜']" 
+                    @getCurrentType="getCurrentT" 
+                    v-show="isTabFixed"
+                    class="copyTab"
+                    ref="tabcon2">
+    </tab-control>
+    <!-- 为了起到吸顶的效果，多复制的一份↑ -->
     <scroll class="content" 
             ref="scroll" 
            @scroll="isShowBT"
            :pullupload="true"
            @pullingUp="loadMore">
-      <home-swiper :banners="banners"></home-swiper>
+      <home-swiper :banners="banners" @banLoad="bimgload"></home-swiper>
       <recommand-view :recommends="recommends"></recommand-view>
       <feature-view/>
-      <tab-control :titles="['推荐','热门','排行榜']" @getCurrentType="getCurrentT"></tab-control>
+      <tab-control :titles="['推荐','热门','排行榜']" 
+                    @getCurrentType="getCurrentT" 
+                    ref="tabcon1">
+      </tab-control>
       <goods-list :goods="goods[currentType].list" ></goods-list>
       <about></about> 
     </scroll>
@@ -60,8 +70,9 @@ export default {
         'rank':{page:0,list:[]},
       },
       isShow:false,
-      scrollobj: {}
-
+      scrollobj: {},
+      taboffset: 0,
+      isTabFixed: false,
     }
   },
   created(){                        //在创建这个组件的时候，应该立刻发送请求数据
@@ -71,20 +82,31 @@ export default {
     this.getHomeGoods('rank')
   },
   mounted(){
-    //拿到scroll组件里的scroll对象,传入到debounce工具里，得到一个延迟执行函数
     this.$bus.$on('readyUpdate',()=>{
-      this.$refs.scroll.scroll.refresh()
+      this.$refs.scroll.scroll.refresh() //载入一张图就刷新一次
     })
+
+
   },
   methods:{
+    bimgload(){
+      //就延时一下下等图片加载完
+      setTimeout(()=>{
+        this.taboffset = this.$refs.tabcon1.$el.offsetTop
+        console.log(this.taboffset);
+      },90)
+    },
     isShowBT(position){
+      //返回按钮的显示
       this.isShow = (-position.y) > 1000
+
+      //tab-control的吸顶效果
+      this.isTabFixed = (-position.y) > this.taboffset
     },
     backTop(){
       this.$refs.scroll.scroll.scrollTo(0,0,300)
     },
     getCurrentT(index){
-      console.log(index);
       switch(index){
         case 0:
           this.currentType = 'rec'
@@ -96,6 +118,8 @@ export default {
           this.currentType = 'rank'
           break
       }
+      this.$refs.tabcon1.currentIndex = index
+      this.$refs.tabcon2.currentIndex = index
     },
     getHomeMulti(){
       getHomeMultidata().then(res => {
@@ -114,6 +138,7 @@ export default {
       }).catch(err => {       
         //即使加载失败后也调用完成方法
         this.$refs.scroll.scroll.finishPullUp()
+        alert('Emm~似乎没有更多内容了噢')
       })
     },
     loadMore(){
@@ -142,4 +167,9 @@ export default {
   left: 0;
   right: 0;
 }
+.copyTab{
+  position: relative;
+  z-index: 9;
+}
+
 </style>

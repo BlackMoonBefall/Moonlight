@@ -16,8 +16,8 @@ export default {
 <style scoped>
 .bac{
   color: rgb(238, 25, 25);
-  width: 32px;
-  height: 32px;;
+  width: 42px;
+  height: 42px;;
   background: #eee;
   border-radius: 50%;
   /*flex 布局*/

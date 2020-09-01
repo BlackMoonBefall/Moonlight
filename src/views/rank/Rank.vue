@@ -1,12 +1,12 @@
 <template>
   <div>
-    用户
+   排行榜:开发中...
   </div>  
 </template>
 
 <script>
 export default {
-  name:'User',
+  name:'Rank',
 }
 </script>
 

@@ -14,7 +14,7 @@ export default {
 #tab-control-item{
   flex:1;
   text-align: center;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0px 0px 0px;
   padding-bottom: 10px;
   }
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="goods-list-item">
+  <div id="goods-list-item" @click="itemDetail">
     <a href="#">
     <div class="goods-item"><img :src="citem.show.img" alt="SORRYYY" @load="imgLoad"></div>
     <div class="goods-info">
@@ -26,7 +26,10 @@ export default {
   methods:{
     imgLoad(){
       this.$bus.$emit('readyUpdate')
-    }
+    },
+    itemDetail(){
+      this.$router.push('/detail/' + this.citem.iid)
+    },
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div id="feature">
-    <a href="#"><img src="~assets/img/feature/feature.png" alt=""></a>
+    <a href="javascript:void(0)"><img src="~assets/img/feature/feature.png" alt=""></a>
   </div>  
 </template>
 

@@ -28,6 +28,7 @@ export default {
     flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
-		padding: 0 6px;
+    padding: 0 6px;
+    margin-top: 5px;
   }
 </style>

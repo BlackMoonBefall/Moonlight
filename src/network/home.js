@@ -11,3 +11,4 @@ export function getHomeGoodsData(page){
     url:`public/home/malitem_${page}.json`
   })
 }
+

@@ -10,9 +10,10 @@ Vue.use(VueRouter)
 
 //路由惰性加载----------------
 const Home = () => import('views/home/Home')
+const Detail = () => import('views/detail/Detail')
 const Aboutme = () => import('views/about/AboutMe')
 const Collect = () => import('views/collect/Collect')
-const Subs = () => import('views/subs/Subs')
+const Rank = () => import('views/rank/Rank')
 const User = () => import('views/user/User')
 
 
@@ -33,6 +34,13 @@ const routes = [         //路由配置
     }
   },
   {
+    path:'/detail/:iid',
+    component:Detail,           
+    meta:{
+      title:'详情页'
+    }
+  },
+  {
     path:'/aboutme',
     component:Aboutme,          
     meta:{
@@ -47,10 +55,10 @@ const routes = [         //路由配置
     }
   },
   {
-    path:'/subs',
-    component:Subs,          
+    path:'/rank',
+    component:Rank,          
     meta:{
-      title:'关注的人'
+      title:'排行榜'
     }
   },
   {
@@ -65,7 +73,7 @@ const routes = [         //路由配置
 const router = new VueRouter({
   routes,
   mode:'history',
-  linkActiveClass:'router-active'
+  linkActiveClass:'router-active' //给当前激活的路由自动添加的class名字
 })
 
 

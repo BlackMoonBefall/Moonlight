@@ -4,7 +4,7 @@
 //   return new Scroll(config)
 // }
 
-export function debounce(func,delay){
+export function debounce(func,delay){  // 暂时用不到
   let timer = null
   return function (...args){
     if (timer) clearTimeout(timer)
@@ -14,4 +14,3 @@ export function debounce(func,delay){
   }
 }
 
-// 暂时用不到

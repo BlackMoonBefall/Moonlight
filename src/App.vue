@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <main-tab-bar/>         <!-- 底部横条 -->
-    <router-view/>          <!-- 前端路由页面 -->
+    <keep-alive exclude="Detail,Collect">
+      <router-view/>          <!-- 前端路由页面 -->
+    </keep-alive>
   </div>
 </template>
 
@@ -15,6 +17,13 @@ export default {
     MainTabBar,
   }
 }
+
+
+
+
+
+
+
 </script>
 
 <style>
