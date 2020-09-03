@@ -26,7 +26,7 @@ export default {
 #float_about > a{
     float: left;
     position: fixed;
-    top: 200px;
+    top: 180px;
     left: 12px;
     border-radius:3px ;
     border: 2px solid rgb(24, 42, 102);

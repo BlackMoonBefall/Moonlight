@@ -1,12 +1,17 @@
 <template>
   <div id="feature">
-    <a href="javascript:void(0)"><img src="~assets/img/feature/feature.png" alt=""></a>
+    <div @click="toalert"><img src="~assets/img/feature/feature.jpg" alt=""></div>
   </div>  
 </template>
 
 <script>
 export default {
   name:'FeatureView',
+  methods:{
+    toalert(){
+      alert('抱歉，活动已结束~')
+    }
+  }
 
 }
 </script>

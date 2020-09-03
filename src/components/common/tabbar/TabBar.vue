@@ -13,7 +13,7 @@ export default {
 <style>
  #tab-bar {
     display: flex;
-    background-color: rgb(248, 217, 217);
+    background-color: rgb(240, 223, 228);
     position: fixed;  /*固定在底部*/ 
     left: 0;
     right: 0;

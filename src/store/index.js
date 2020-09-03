@@ -11,9 +11,10 @@ const store = new Vuex.Store({
 
   },
   mutations:{
-    addToColl(state,iid){
+    addToColl(state,book){
       //添加到数组
-      this.state.collections.push(iid)
+      this.state.collections.push(book.data)
+      //收藏里添加之后。book的相关数据就会被传到vuex，接下来在收藏里进行展示
     
     },
     getColl(){

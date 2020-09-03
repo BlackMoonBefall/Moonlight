@@ -13,12 +13,12 @@
     <scroll class="content" 
             ref="scroll" 
            @scroll="isShowBTandChangeSe">
-      <detail-swiper :detbanners="detbanners" @banLoad="bimgload"/>
+      <detail-shower :detbanner="detbanner" @banLoad="bimgload"/>
       <detail-author/>
       <detail-comment/>
       <detail-recommend/>
     </scroll>
-    <detail-bot-bar/>
+    <detail-bot-bar :passtoColl="passtoColl"/>
     <back-top ref="back" @click.native="backTop" v-show="isShow"></back-top>
   </div>
 </template>
@@ -30,7 +30,7 @@ import NaviBar from 'components/common/navibar/NaviBar'
 import Scroll from 'components/common/scroll/Scroll'
 import BackTop from 'components/content/backTop/BackTop'
 
-import DetailSwiper from './detailComps/DetailSwiper'
+import DetailShower from './detailComps/DetailShower'
 import DetailAuthor from './detailComps/DetailAuthor'
 import DetailComment from './detailComps/DetailComment'
 import DetailRecommend from './detailComps/DetailRecommend'
@@ -45,9 +45,10 @@ export default {
     return{
       detailnavi:['详情','作者','评论','推荐'],
       detailindex:[0,273,479,884,10000],
-      detbanners:[],
+      detbanner:'',
       currentIndex: 0,
-      isShow: false
+      isShow: false,
+      passtoColl:{} 
     }
   },
   created(){
@@ -85,14 +86,15 @@ export default {
     },
     getDetail(){
       getDetailData(this.$route.params.iid).then(res => {
-        console.log(this.detbanners);
-        console.log(res);
-        this.detbanners.push(...res.data)
-
+        //详情图给详情页面，解构赋值
+        this.detbanner = res.data.show.img
+        //返回的数据
+        this.passtoColl = res
       })
     },
     bimgload(){
       console.log('详情图加载成功');
+      //这里应该还要干些什么来着？？
      
     },
     detailSe(index){
@@ -105,7 +107,7 @@ export default {
   },
   components:{
     NaviBar,
-    DetailSwiper,
+    DetailShower,
     DetailAuthor,
     DetailComment,
     DetailRecommend,

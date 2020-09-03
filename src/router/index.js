@@ -21,16 +21,17 @@ const User = () => import('views/user/User')
 const routes = [         //路由配置
   {
     path:'/',
-    redirect:'/home',           //重定向
+    component:Home,  
+    // redirect:'/home',           //重定向
     meta:{
-      title:'首页'
+      title:'月光，在线文学艺术小屋'
     }
   },
   {
     path:'/home',
     component:Home,           
     meta:{
-      title:'月光，在线绘本艺术小屋'
+      title:'月光，在线文学艺术小屋'
     }
   },
   {

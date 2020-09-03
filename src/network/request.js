@@ -19,16 +19,6 @@ export function request(config){  //
 }         
 
 
-
-
-
-
-
-
-
-
-
-
 //备用接口2
 export function requestpass(){
 

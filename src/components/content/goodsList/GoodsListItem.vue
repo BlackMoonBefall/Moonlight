@@ -3,9 +3,9 @@
     <a href="#">
     <div class="goods-item"><img :src="citem.show.img" alt="SORRYYY" @load="imgLoad"></div>
     <div class="goods-info">
-      <p>{{citem.title}}</p>
-      <span>价格：{{citem.price}}￥</span>
-      <span>收藏：{{citem.fav}}</span>
+      <p><b>{{citem.title}}</b></p>
+      <div><b>作者：{{citem.author}}</b></div>
+      <div>人气：{{citem.fav}}</div>
     </div>
     </a>
     
@@ -36,6 +36,7 @@ export default {
 
 <style scoped>
   #goods-list-item{
+    text-align: center;
     width: 49%;
 		height: auto;
 		padding-top: 6px;
@@ -43,11 +44,18 @@ export default {
   }
   .goods-item img{
     border-radius: 8px;
-    width: 100%;
+    width: 80%;
+    box-shadow: 5px 3px 6px;
   }
   .goods-info p{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin-bottom: 8px;
   }
+
+ .goods-info{
+    margin: 10px 0 10px 0;
+ }
+
 </style>

@@ -15,6 +15,14 @@
 <script>
 export default {
   name:'DetailBotBar',
+  props:{
+    passtoColl:{
+      type:Object,
+      default(){
+        return {}
+      }
+    }
+  },
   methods:{
     addSup(){
       this.$toast.show('推荐成功',2000)
@@ -22,8 +30,8 @@ export default {
     addCollect(){
       this.$toast.show('成功加入收藏夹',2000)
       //调用Vuex加入收藏
-      let iid =this.$route.params.iid
-      this.$store.commit('addToColl',iid)
+      let book = this.passtoColl
+      this.$store.commit('addToColl',book)
 
 
     },

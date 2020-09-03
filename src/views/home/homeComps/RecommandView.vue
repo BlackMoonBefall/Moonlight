@@ -1,10 +1,10 @@
 <template>
   <div id="home-recommend">
     <div class="recommend-item" v-for="item in recommends" :key="item.index">
-      <a href="item.link">
+      <div @click="toalert" >
         <img :src="item.image" alt="">
         <div>{{item.title}}</div>
-      </a>
+      </div>
     </div>
   </div>
 </template>
@@ -19,6 +19,11 @@ export default {
         return []
       }
     }
+  },
+  methods:{
+    toalert(){
+      alert('分类目前正在整合中~')
+    }
   }
 }
 </script>
@@ -30,6 +35,7 @@ export default {
     padding: 10px 0px 15px 0px;
     border-bottom: 10px solid rgb(229, 226, 226);
     text-align: center;
+    background-color: #fff;
   }
   .recommend-item{
     flex:1;

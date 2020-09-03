@@ -33,7 +33,10 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+body{
+	background-color: rgb(255, 255, 255);
+}
 .about-nav{
   background-color: rgb(156, 151, 226);
   color: #fff;
