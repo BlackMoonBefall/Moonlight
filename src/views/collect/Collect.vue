@@ -3,7 +3,7 @@
     <navi-bar class="collect-nav"><div slot="center">收藏夹</div></navi-bar>
     <scroll class="content">
       <collect-item v-for="(item,index) in collections" :key="item.index" :item="item" :index="index"/>
-      <div v-show="!collections" >收藏夹里还没有内容，请到详情页面添加~</div>
+      <div v-if="collections.length == 0" class="info">收藏夹里空空如也，到详情页面添加收藏吧~</div>
     </scroll >
   </div>  
 </template>
@@ -43,6 +43,12 @@ export default {
 .collect-nav{
   background-color: rgb(223, 202, 238);
   color: #fff;
+}
+
+.info{
+  font-size: 14px;
+  margin: 250px 0 0 50px;
+
 }
 
 .content{

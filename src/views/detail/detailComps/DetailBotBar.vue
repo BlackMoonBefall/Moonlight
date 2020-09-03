@@ -28,12 +28,15 @@ export default {
       this.$toast.show('推荐成功',2000)
     },
     addCollect(){
-      this.$toast.show('成功加入收藏夹',2000)
       //调用Vuex加入收藏
       let book = this.passtoColl
+      let tempArr = this.$store.state.collections.length
       this.$store.commit('addToColl',book)
 
-
+      if(this.$store.state.collections.length == tempArr) 
+        this.$toast.show('收藏夹里已经有啦~',2000)
+      else 
+        this.$toast.show('成功添加到收藏夹',2000)
     },
     report(){
       this.$toast.show('举报成功',2000)
