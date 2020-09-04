@@ -1,6 +1,9 @@
 <template>
   <div id="collect">
-    <navi-bar class="collect-nav"><div slot="center">收藏夹</div></navi-bar>
+    <navi-bar class="collect-nav">
+      <div slot="center">收藏夹</div>
+      <div slot="right">。。。</div>
+    </navi-bar>
     <scroll class="content">
       <collect-item v-for="(item,index) in collections" :key="item.index" :item="item" :index="index"/>
       <div v-if="collections.length == 0" class="info">收藏夹里空空如也，到详情页面添加收藏吧~</div>

@@ -73,6 +73,8 @@ export default {
       scrollobj: {},
       taboffset: 0,
       isTabFixed: false,
+      nowScrollon:0,
+      leaveScrollon:0,
     }
   },
   created(){                        //在创建这个组件的时候，应该立刻发送请求数据
@@ -88,6 +90,13 @@ export default {
 
 
   },
+  activated(){                   //进来时载入离开时保存的位置
+    this.$refs.scroll.scroll.refresh()  //刷新一下再滚动到原位置，否则一点击就会触发回顶部bug
+    this.$refs.scroll.scroll.scrollTo(0,this.leaveScrollon,10)
+  },
+  deactivated(){              //离开保存位置
+    this.leaveScrollon = this.nowScrollon 
+  },
   methods:{
     bimgload(){
       //就延时一下下等图片加载完
@@ -102,6 +111,9 @@ export default {
 
       //tab-control的吸顶效果
       this.isTabFixed = (-position.y) > this.taboffset
+
+      //为了保存当前滚动到哪里
+      this.nowScrollon = position.y
     },
     backTop(){
       this.$refs.scroll.scroll.scrollTo(0,0,300)
