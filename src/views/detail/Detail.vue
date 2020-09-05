@@ -13,7 +13,7 @@
     <scroll class="content" 
             ref="scroll" 
            @scroll="isShowBTandChangeSe">
-      <detail-shower :detbanner="detbanner" @banLoad="bimgload"/>
+      <detail-shower :detbanner="detbanner" />
       <detail-author/>
       <detail-comment/>
       <detail-recommend/>
@@ -91,11 +91,6 @@ export default {
         //返回的数据
         this.passtoColl = res
       })
-    },
-    bimgload(){
-      console.log('详情图加载成功');
-      //这里应该还要干些什么来着？？
-     
     },
     detailSe(index){
       this.currentIndex = index

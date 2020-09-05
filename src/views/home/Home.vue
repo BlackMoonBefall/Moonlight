@@ -102,7 +102,7 @@ export default {
       //就延时一下下等图片加载完
       setTimeout(()=>{
         this.taboffset = this.$refs.tabcon1.$el.offsetTop
-        console.log(this.taboffset);
+        //这里是为了准确计算tab-control的吸顶效果
       },90)
     },
     isShowBT(position){

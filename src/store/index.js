@@ -21,17 +21,21 @@ const store = new Vuex.Store({
       for(let i=0; i<state.collections.length; i++){
           //判断是否有重复
         if(book.data.iid == state.collections[i].iid){
-          console.log("重复收藏！");
+          //重复收藏！
           flag = false
         } 
       }
       if(flag)
         this.state.collections.push(book.data)
     },
-    getColl(){
-      return this.state.collections
+    delInColl(state,iid){
+      for(let i=0; i<state.collections.length; i++){
+        //删除iid项收藏
+        if(state.collections[i].iid == iid){
+          state.collections.splice(i,1)
+        }
+      }
     }
-
   },
   actions:{
 

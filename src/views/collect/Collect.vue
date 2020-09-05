@@ -2,10 +2,10 @@
   <div id="collect">
     <navi-bar class="collect-nav">
       <div slot="center">收藏夹</div>
-      <div slot="right">。。。</div>
+      <div slot="right" @click="manageColl"><button class="btn">管理</button></div>
     </navi-bar>
     <scroll class="content">
-      <collect-item v-for="(item,index) in collections" :key="item.index" :item="item" :index="index"/>
+      <collect-item v-for="(item,index) in collections" :key="item.index" :item="item" :index="index" :isShowMana="isShowMana"/>
       <div v-if="collections.length == 0" class="info">收藏夹里空空如也，到详情页面添加收藏吧~</div>
     </scroll >
   </div>  
@@ -22,6 +22,7 @@ export default {
   data(){
     return{
       collections:[],
+      isShowMana: false
     }
   },
   mounted(){
@@ -32,7 +33,9 @@ export default {
 
   },
   methods:{
-    
+    manageColl(){
+      this.isShowMana = !this.isShowMana
+    }
   },
   components:{
     CollectItem,
@@ -61,5 +64,14 @@ export default {
   bottom:49px;
   left: 0;
   right: 0;
+}
+.btn{
+  outline:none;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 3px;
+  color: rgb(255, 255, 255) ;
+  background-color: rgb(223, 202, 238);
+  border: 2px solid rgb(245, 244, 244);
 }
 </style>
