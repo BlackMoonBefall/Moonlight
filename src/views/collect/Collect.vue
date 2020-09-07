@@ -5,7 +5,7 @@
       <div slot="right" @click="manageColl"><button class="btn">管理</button></div>
     </navi-bar>
     <scroll class="content">
-      <collect-item v-for="(item,index) in collections" :key="item.index" :item="item" :index="index" :isShowMana="isShowMana"/>
+      <collect-item v-for="item in collections" :key="item" :item="item" :isShowMana="isShowMana"/>
       <div v-if="collections.length == 0" class="info">收藏夹里空空如也，到详情页面添加收藏吧~</div>
     </scroll >
   </div>  

@@ -33,15 +33,14 @@ import {
   getHomeGoodsData      
   } from 'network/home' 
 import {debounce} from 'common/utils'     // 暂时用不到
-
-
+//--------------------------------
 import NaviBar from 'components/common/navibar/NaviBar'
 import Scroll from 'components/common/scroll/Scroll'
 import about from 'components/content/about'
 import TabControl from 'components/content/tabControl/TabControl'
 import GoodsList from 'components/content/goodsList/GoodsList'
 import BackTop from 'components/content/backTop/BackTop'
-
+//--------------------------------
 import HomeSwiper from './homeComps/HomeSwiper'
 import RecommandView from './homeComps/RecommandView'
 import FeatureView from './homeComps/FeatureView'

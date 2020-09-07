@@ -1,10 +1,9 @@
 <template>
-  <div id="collect-item" @click="goToDetail">
-    <div class="colimg"><img :src="item.show.img" alt=""></div>
+  <div id="rank-item" @click="goToDetail">
+    <div class="rankimg"><img :src="item.show.img" alt=""></div>
     <div class="item-info">
       <div class='title'>
         <b>{{item.title}}</b>
-        <div class="remv" v-if="isShowMana" @click="delCollItem"><img src="~assets/img/delbtn/del.png" alt="删除的图片"></div>
       </div> 
       <div class="sp">
         <span>作者：<b>{{item.author}}</b></span> 
@@ -18,18 +17,14 @@
         他被流放到上古时期的荒凉大陆，变成一个奴隶过完自己剩余的一生。
         要复仇，还是要这样耻辱地活下去？————“我镇天宇，从今天开始，放弃骑士身份。”</p>
       
-
     </div>
-  </div>  
+    
+  </div>
 </template>
 
 <script>
 export default {
-  name:'CollectItem',
-  data(){
-    return{
-    }
-  },
+  name:'RankItem',
   props:{
     item:{
       type:Object,
@@ -37,28 +32,17 @@ export default {
         return {}
       }
     },
-    isShowMana:{
-      type:Boolean,
-      default(){
-        return false
-      }
-    }
   },
   methods:{
-    delCollItem(){
-      this.$store.commit('delInColl',this.item.iid)
-    },
-    goToDetail(){
-      if(!this.isShowMana)
-        this.$router.push('/detail/' + this.item.iid)  //从收藏点击进入详情页
+     goToDetail(){
+      this.$router.push('/detail/' + this.item.iid)  //从收藏点击进入详情页
     }
   }
-
 }
 </script>
 
 <style scoped>
-#collect-item{
+#rank-item{
   font-size: 17px;
   background-color: rgb(213, 228, 235);
   height: 18vh;
@@ -69,10 +53,10 @@ export default {
   margin: 8px 0 0 20px;
   box-shadow: -2px 2px 4px rgba(0,0,0,.5);
 }
-.colimg{
+.rankimg{
   width: 25%;
 }
-.colimg img{
+.rankimg img{
   margin-left: 5px;
   box-shadow: -2px 2px 4px rgba(0,0,0,.3);
   position: relative;
@@ -111,13 +95,5 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-.remv{
-  display: inline;
-  position: absolute;
-  right: 5px;
-}
-.remv img{
-  width: 25px;
 }
 </style>
