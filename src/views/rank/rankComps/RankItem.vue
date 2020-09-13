@@ -17,7 +17,8 @@
         <!-- <span>人气值：{{item.fav}}</span>  -->
       </div>
       <!-- 这个简介本来应该写在后端的数据接口的，不过，算了，20个简介有空再慢慢写吧-->
-      <p class="brief">简介：一位骑士失去了要守护的人，<br>从此堕入黑暗。
+      <p class="brief2" v-if="item.brief">{{item.brief}}</p>
+      <p class="brief" v-else>简介：一位骑士失去了要守护的人，<br>从此堕入黑暗。
         一蹶不振的他在这片大<br>陆上因为一次偶然的机遇，
         竟然发现了自己所处帝国的惊天秘密，原来一切都是早已安排好的结果。
         帝国密令暗杀自己守护的三公主，作为无法保护好主人的失责骑士。
@@ -133,6 +134,13 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.brief2{
+  text-indent:2em;
+  font-size: 14px;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /*左边热度和图标*/
 .hot{

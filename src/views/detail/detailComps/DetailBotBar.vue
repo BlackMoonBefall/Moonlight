@@ -34,7 +34,7 @@ export default {
       this.$store.commit('addToColl',book)
 
       if(this.$store.state.collections.length == tempArr) 
-        this.$toast.show('收藏夹里已经有啦~',2000)
+        this.$toast.show('收藏夹里已经有啦~',1000)
       else 
         this.$toast.show('成功添加到收藏夹',2000)
     },

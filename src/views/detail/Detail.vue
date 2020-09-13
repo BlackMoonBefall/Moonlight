@@ -13,10 +13,10 @@
     <scroll class="content" 
             ref="scroll" 
            @scroll="isShowBTandChangeSe">
-      <detail-shower :detbanner="detbanner" />
-      <detail-author/>
-      <detail-comment/>
-      <detail-recommend/>
+      <detail-shower :detbanner="detbanner" :item="item.data"/>
+      <detail-author :item="item.data"/>
+      <detail-comment :item="item"/>
+      <detail-recommend />
     </scroll>
     <detail-bot-bar :passtoColl="passtoColl"/>
     <back-top ref="back" @click.native="backTop" v-show="isShow"></back-top>
@@ -48,7 +48,8 @@ export default {
       detbanner:'',
       currentIndex: 0,
       isShow: false,
-      passtoColl:{} 
+      passtoColl:{},
+      item:{}
     }
   },
   created(){
@@ -85,11 +86,13 @@ export default {
      
     },
     getDetail(){
+      //这里是直接请求单个数据的，根据iid
       getDetailData(this.$route.params.iid).then(res => {
         //详情图给详情页面，解构赋值
         this.detbanner = res.data.show.img
-        //返回的数据
+        //传给收藏子组件以及展示子组件
         this.passtoColl = res
+        this.item = res
       })
     },
     detailSe(index){

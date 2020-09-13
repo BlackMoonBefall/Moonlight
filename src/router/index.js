@@ -15,7 +15,7 @@ const Aboutme = () => import('views/about/AboutMe')
 const Collect = () => import('views/collect/Collect')
 const Rank = () => import('views/rank/Rank')
 const User = () => import('views/user/User')
-
+const Book = () => import('views/book/Book')
 
 //2.创建VueRouter对象
 const routes = [         //路由配置
@@ -39,6 +39,13 @@ const routes = [         //路由配置
     component:Detail,           
     meta:{
       title:'详情页'
+    }
+  },
+  {
+    path:'/book/:iid',
+    component:Book,           
+    meta:{
+      title:'月光书城'
     }
   },
   {
